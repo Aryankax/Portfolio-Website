@@ -17,23 +17,23 @@ export default function RootLayout({ children }) {
           <div className="flex items-center gap-6">
             <ThinGlassPanel />
             <GlassPanel>
-              <div className="flex">
+              <div className="flex h-full">
                 {/* Left partition (nav + avatar) */}
-                <div className="w-[300px] h-[500px] border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl backdrop-saturate-200 shadow-[0_6px_24px_rgba(0,0,0,0.15)] ring-1 ring-white/10 rounded-2xl p-4 overflow-hidden">
-                  <div className="flex items-center gap-3">
-                    <div className="me w-14 h-14 rounded-full bg-center bg-cover ring-2 ring-white/70 shadow-sm" />
+                <div className="w-[300px] h-full border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl backdrop-saturate-200 shadow-[0_6px_24px_rgba(0,0,0,0.15)] ring-1 ring-white/10 rounded-2xl p-4 pb-6 overflow-hidden">
+                  <div className="flex items-center gap-4">
+                    <div className="me w-20 h-20 rounded-full bg-center bg-cover ring-2 ring-white/70 shadow-sm" />
                     <div style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" }}>
-                      <div className="text-white/95 text-xl font-semibold leading-tight">Aryan Kacker</div>
-                      <div className="text-white/80 text-sm">Software Engineer</div>
+                      <div className="text-white/95 text-2xl font-semibold leading-tight">Aryan Kacker</div>
+                      <div className="text-white/85 text-base">Software Engineer</div>
                     </div>
                   </div>
                   <NavMenu />
                 </div>
 
                 {/* Right partition (title + routed content) */}
-                <div className="flex-1 h-[500px] rounded-2xl overflow-hidden flex flex-col">
+                <div className="flex-1 h-full rounded-2xl overflow-hidden flex flex-col min-h-0">
                   <TitleBar />
-                  <div className="flex-1 overflow-auto no-scrollbar px-6 py-4 pr-6 text-white/90 scroll-smooth">
+                  <div className="flex-1 overflow-auto stealth-scrollbar px-6 py-4 pr-6 text-white/90 scroll-smooth min-h-0">
                     {children}
                   </div>
                 </div>

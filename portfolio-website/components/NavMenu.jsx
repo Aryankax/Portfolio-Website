@@ -7,6 +7,7 @@ const items = [
   { href: "/about-me", label: "About me" },
   { href: "/projects", label: "Projects" },
   { href: "/experience", label: "Experience" },
+  { href: "/resume", label: "Resume" },
   { href: "/contact-me", label: "Contact me" },
 ];
 

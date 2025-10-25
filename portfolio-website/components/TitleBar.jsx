@@ -7,6 +7,7 @@ const titleMap = {
   "/about-me": "About me",
   "/projects": "Projects",
   "/experience": "Experience",
+  "/resume": "Resume",
   "/contact-me": "Contact me",
 };
 

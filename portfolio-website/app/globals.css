@@ -44,6 +44,28 @@ body {
   display: none; /* Chrome, Safari */
 }
 
+/* Stealth thin scrollbar: hidden-ish by default, appears subtly on hover */
+.stealth-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: transparent transparent; /* default: invisible */
+}
+.stealth-scrollbar:hover {
+  scrollbar-color: rgba(255,255,255,0.32) transparent; /* thumb on hover */
+}
+.stealth-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.stealth-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.stealth-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 8px;
+}
+.stealth-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.35);
+}
+
 /* Reveal on scroll animations */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(12px); }
