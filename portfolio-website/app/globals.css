@@ -79,3 +79,57 @@ body {
 .reveal.in-view {
   animation: fade-up 420ms ease-out both;
 }
+
+/* Apple-like hello animation */
+.hello-text {
+  font-family: ui-script, "Snell Roundhand", "Segoe Script", "Bradley Hand", cursive;
+  font-weight: 600;
+  font-size: clamp(48px, 13vw, 120px);
+  letter-spacing: 0.5px;
+}
+
+.hello-stroke {
+  fill: transparent;
+  stroke: url(#helloGradient);
+  stroke-width: 7px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1800;
+  stroke-dashoffset: 1800;
+  animation: hello-draw 2.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes hello-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Endless gradient text overlay */
+.hello-gradient-text {
+  font-family: ui-script, "Snell Roundhand", "Segoe Script", "Bradley Hand", cursive;
+  font-weight: 600;
+  font-size: clamp(56px, 14vw, 132px);
+  letter-spacing: 0.6px;
+  background: linear-gradient(120deg,
+    #ec343a 5%,
+    #fad0c4 12%,
+    #fbc2eb 25%,
+    #a18cd1 37%,
+    #7aa8ff 50%,
+    #6affd8 63%,
+    #059bc5 75%,
+    #b490ca 88%,
+    #e84248 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 5s ease-in-out infinite alternate;
+  text-shadow: 0 2px 24px rgba(255, 255, 255, 0.15);
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

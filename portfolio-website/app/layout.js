@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
             <GlassPanel>
               <div className="flex h-full">
                 {/* Left partition (nav + avatar) */}
-                <div className="w-[300px] h-full border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl backdrop-saturate-200 shadow-[0_6px_24px_rgba(0,0,0,0.15)] ring-1 ring-white/10 rounded-2xl p-4 pb-6 overflow-hidden">
+                <div className="w-[330px] h-full border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl backdrop-saturate-200 shadow-[0_6px_24px_rgba(0,0,0,0.15)] ring-1 ring-white/10 rounded-2xl p-5 pb-24 overflow-visible">
                   <div className="flex items-center gap-4">
                     <div className="me w-20 h-20 rounded-full bg-center bg-cover ring-2 ring-white/70 shadow-sm" />
                     <div style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" }}>
@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
                     </div>
                   </div>
                   <NavMenu />
+                  <div className="h-6" />
                 </div>
 
                 {/* Right partition (title + routed content) */}

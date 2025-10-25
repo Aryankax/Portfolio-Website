@@ -24,16 +24,16 @@ export default function NavMenu() {
             href={item.href}
             className={[
               // base layout
-              "group block rounded-xl overflow-hidden",
-              "px-4 py-3",
+              "group block rounded-xl overflow-visible",
+              "px-4 py-3 mb-1 last:mb-0",
               // motion
               "transition-transform duration-200 ease-out will-change-transform origin-left transform-gpu",
               // active vs inactive styles
               active
                 ? "bg-white/15 ring-1 ring-white/20 shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
-                : "",
-              // hover: scale only (no bg), limited to avoid bleeding
-              "hover:scale-105",
+                : "hover:scale-105",
+              // prevent bottom clipping for the last item
+              "last:hover:scale-100",
             ].join(" ")}
           >
             <div className="flex h-10 items-center justify-between">
