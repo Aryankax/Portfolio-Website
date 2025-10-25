@@ -1,8 +1,10 @@
+import Tilt from "@/components/Tilt";
+
 export default function ProjectList({ items }) {
   return (
     <div className="flex flex-col gap-4 pr-4">
       {items.map((p, idx) => (
-        <div key={idx} className="rounded-2xl bg-white/10 ring-1 ring-white/15 backdrop-blur-md px-4 py-3 text-white/95 shadow-[0_8px_24px_rgba(0,0,0,0.15)]">
+        <Tilt key={idx} className="rounded-2xl bg-white/12 ring-1 ring-white/20 backdrop-blur-lg px-4 py-3 text-white/95 shadow-[0_8px_24px_rgba(0,0,0,0.15)] glow-card">
           <div className="flex items-start justify-between gap-4">
             <div>
               <div className="text-lg font-semibold">{p.name}</div>
@@ -19,7 +21,7 @@ export default function ProjectList({ items }) {
             ) : null}
           </div>
           <p className="mt-2 text-white/90 text-sm leading-6">{p.summary}</p>
-        </div>
+        </Tilt>
       ))}
     </div>
   );

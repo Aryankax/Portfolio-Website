@@ -3,6 +3,7 @@ import GlassPanel from "@/components/GlassPanel";
 import ThinGlassPanel from "@/components/ThinGlassPanel";
 import NavMenu from "@/components/NavMenu";
 import TitleBar from "@/components/TitleBar";
+import AmbientBlob from "@/components/AmbientBlob";
 
 export const metadata = {
   title: "Next.js",
@@ -12,6 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://github.com" />
+        <link rel="preconnect" href="https://www.linkedin.com" />
+      </head>
       <body>
         <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black bg-wallpaper-mac bg-cover bg-center">
           <div className="flex items-center gap-6">
@@ -36,7 +41,8 @@ export default function RootLayout({ children }) {
                 {/* Right partition (title + routed content) */}
                 <div className="flex-1 h-full rounded-2xl overflow-hidden flex flex-col min-h-0 relative">
                   <TitleBar />
-                  <div className="flex-1 overflow-auto stealth-scrollbar px-6 py-4 pr-6 text-white/90 scroll-smooth min-h-0">
+                  <AmbientBlob />
+                  <div className="flex-1 overflow-auto stealth-scrollbar px-6 py-4 pr-6 text-white/90 scroll-smooth min-h-0 relative z-[2]">
                     {children}
                   </div>
                 </div>

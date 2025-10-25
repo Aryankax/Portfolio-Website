@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const items = [
@@ -14,6 +14,7 @@ const items = [
 
 export default function NavMenu() {
   const pathname = usePathname() || "/";
+  const router = useRouter();
   const linkRefs = useRef([]);
   const containerRef = useRef(null);
   const [indicatorTop, setIndicatorTop] = useState(0);
@@ -34,8 +35,39 @@ export default function NavMenu() {
     setIndicatorHeight(elRect.height);
   }, [activeIndex, pathname]);
 
+  function onKeyDown(e) {
+    const key = e.key;
+    if (key !== "ArrowDown" && key !== "ArrowUp" && key !== "Enter") return;
+    e.preventDefault();
+    let idx = activeIndex;
+    if (key === "ArrowDown") idx = Math.min(items.length - 1, activeIndex + 1);
+    if (key === "ArrowUp") idx = Math.max(0, activeIndex - 1);
+    if (key === "Enter") {
+      router.push(items[activeIndex].href);
+      return;
+    }
+    linkRefs.current[idx]?.focus?.();
+    router.push(items[idx].href);
+  }
+
+  function spawnRipple(e) {
+    const el = e.currentTarget;
+    const rect = el.getBoundingClientRect();
+    const ripple = document.createElement("span");
+    ripple.className = "ripple";
+    ripple.style.left = `${e.clientX - rect.left}px`;
+    ripple.style.top = `${e.clientY - rect.top}px`;
+    el.appendChild(ripple);
+    ripple.addEventListener("animationend", () => ripple.remove());
+  }
+
   return (
-    <nav ref={containerRef} className="relative mt-4 flex flex-col gap-4 text-white/90 select-none">
+    <nav
+      ref={containerRef}
+      className="relative mt-4 flex flex-col gap-4 text-white/90 select-none"
+      tabIndex={0}
+      onKeyDown={onKeyDown}
+    >
       {/* Sliding liquid glass highlight */}
       <div
         className="pointer-events-none absolute left-0 w-full will-change-transform transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)]"
@@ -52,11 +84,12 @@ export default function NavMenu() {
             href={item.href}
             ref={(el) => (linkRefs.current[idx] = el)}
             className={[
-              "group block rounded-xl overflow-visible",
+              "group block rounded-xl overflow-visible ripple-container",
               "px-4 py-3 mb-1 last:mb-0",
               // motion
               active ? "" : "transition-transform duration-200 ease-out transform-gpu hover:scale-105",
             ].join(" ")}
+            onMouseDown={spawnRipple}
           >
             <div className="relative z-[1] flex h-10 items-center justify-between">
               <span className="text-white font-medium tracking-wide">

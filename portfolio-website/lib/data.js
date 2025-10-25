@@ -7,7 +7,7 @@ export const profile = {
   education: {
     school: "SRM Institute of Science and Technology, Chennai",
     degree: "Bachelor of Technology in Computer Science",
-    cgpa: "9.05/10",
+    cgpa: "9.02/10",
     duration: "Sep 2022 – May 2026",
   },
   links: {
