@@ -8,10 +8,10 @@ export default function Page() {
       <Reveal>
         <Tilt className="rounded-2xl bg-white/16 ring-1 ring-white/20 backdrop-blur-lg p-4 glow-card">
           <p className="leading-7 text-white/95">
-            I’m {profile.name}, a {profile.role} passionate about building reliable products across
-            web and mobile. I’ve worked on feature flagging in enterprise stacks (Java/.NET/Angular)
-            and shipped SwiftUI apps with Firebase real‑time capabilities. I enjoy systems design,
-            developer tooling, and creating delightful UX with Next.js and Tailwind.
+            👋 Hey, I’m Aryan Kacker — a passionate Software Engineer and Full-Stack Developer.
+I’m currently pursuing my B.Tech in Computer Science at SRM University (CGPA: 9.02/10) and have worked with Barclays as a Technology Summer Intern, where I developed feature-flag management systems, OpenAPI integrations, and CI/CD pipelines to streamline deployments across large-scale applications.
+
+I enjoy building end-to-end products — from scalable backend systems using Node.js, Express, and MongoDB to full-stack solutions with Next.js and AWS. My work focuses on creating efficient, secure, and maintainable architectures that solve real-world problems and deliver great user experiences.
           </p>
         </Tilt>
       </Reveal>
