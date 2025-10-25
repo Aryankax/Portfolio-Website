@@ -133,3 +133,73 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* Instagram-like animated gradient ring (image stays static) */
+.ig-ring {
+  position: relative;
+  border-radius: 9999px;
+}
+.ig-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 3px; /* ring thickness */
+  background: conic-gradient(#feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5, #feda75);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: ig-ring-rotate 10s linear infinite;
+}
+.ig-ring .inner {
+  position: relative;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+@keyframes ig-ring-rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* Liquid glass route transition (iOS-like) */
+.route-swipe {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.route-swipe.show {
+  animation: route-fade 700ms ease-out both;
+}
+.route-swipe::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -35%;
+  width: 70%;
+  height: 100%;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06));
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  transform: translateX(-60%);
+  will-change: transform;
+}
+.route-swipe.show::after {
+  animation: route-swipe 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes route-swipe {
+  from { transform: translateX(-60%); }
+  to { transform: translateX(140%); }
+}
+
+@keyframes route-fade {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
+}

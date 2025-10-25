@@ -2,7 +2,7 @@
 
 export default function HelloHero() {
   return (
-    <div className="relative flex h-full items-center justify-center select-none">
+    <div className="relative flex h-[60vh] items-center justify-center select-none">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] aspect-2/1 rounded-[48px] bg-[radial-gradient(1200px_600px_at_50%_50%,rgba(255,255,255,0.18),transparent_70%)]" />
       </div>
