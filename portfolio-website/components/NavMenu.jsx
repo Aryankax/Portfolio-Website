@@ -80,7 +80,7 @@ export default function NavMenu() {
         className="pointer-events-none absolute left-0 w-full will-change-transform transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)]"
         style={{ top: indicatorTop, height: indicatorHeight }}
       >
-        <div className="mx-0 rounded-xl bg-white/14 backdrop-blur-xl ring-1 ring-white/20 shadow-[0_10px_28px_rgba(0,0,0,0.18)]" style={{ height: "100%" }} />
+        <div className="mx-0 rounded-xl bg-white/10 dark:bg-white/5 backdrop-blur-xl ring-1 ring-white/20 shadow-[0_10px_28px_rgba(0,0,0,0.18)]" style={{ height: "100%" }} />
       </div>
 
       {items.map((item, idx) => {

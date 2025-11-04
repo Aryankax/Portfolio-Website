@@ -49,7 +49,7 @@ function ExperienceCard({ exp, Icon }) {
     return () => window.removeEventListener("resize", onResize);
   }, [open]);
   return (
-    <div className="rounded-2xl bg-white/14 ring-1 ring-white/20 backdrop-blur-lg px-3 py-3 sm:px-4 sm:py-3 text-white/95 flex items-start gap-3 sm:gap-4 shadow-[0_8px_24px_rgba(0,0,0,0.15)] noise">
+    <div className="rounded-2xl bg-white/14 ring-1 ring-white/20 backdrop-blur-lg px-3 py-3 sm:px-4 sm:py-3 text-white/95 flex items-start gap-3 sm:gap-4 shadow-[0_8px_24px_rgba(0,0,0,0.15)] noise ios-glass">
       <div className="shrink-0"><Icon /></div>
       <div className="flex-1">
         <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-lg sm:text-xl font-semibold">

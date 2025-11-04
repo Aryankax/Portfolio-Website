@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
             <GlassPanel>
               <div className="flex flex-col lg:flex-row h-full">
                 {/* Left partition (nav + avatar) */}
-                <div className="hidden lg:block w-full lg:w-[330px] h-full border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl backdrop-saturate-200 shadow-[0_6px_24px_rgba(0,0,0,0.15)] ring-1 ring-white/10 rounded-2xl p-5 pb-6 lg:pb-24 overflow-visible mb-3 lg:mb-0">
+                <div className="hidden lg:block w-full lg:w-[330px] h-full border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl backdrop-saturate-200 shadow-[0_6px_24px_rgba(0,0,0,0.15)] ring-1 ring-white/10 rounded-2xl p-5 pb-6 lg:pb-24 overflow-visible mb-3 lg:mb-0 ios-glass">
                   <Link href="/" className="flex items-center gap-4 group cursor-pointer select-none mb-4">
                     <div className="ig-ring w-24 h-24">
                       <div className="inner me w-full h-full rounded-full bg-center bg-cover ring-2 ring-white/70 shadow-sm" />

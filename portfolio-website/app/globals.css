@@ -290,6 +290,15 @@ body {
   100% { opacity: 0; }
 }
 
+/* iOS Safari glass fix: ensure proper compositing and avoid white washout */
+.ios-glass {
+  background-clip: padding-box;
+  background-color: rgba(12, 12, 12, 0.38);
+  -webkit-backdrop-filter: saturate(140%) blur(18px);
+  backdrop-filter: saturate(140%) blur(18px);
+  isolation: isolate;
+}
+
 /* Mobile menu pop animation */
 @keyframes menu-in {
   0% { opacity: 0; transform: translateY(-8px) scale(0.98); }

@@ -37,7 +37,7 @@ export default function MobileTopBar() {
   }, [open]);
 
   return (
-    <div className="lg:hidden sticky top-0 z-20 flex items-center justify-between px-4 py-3 bg-white/10 backdrop-blur-xl ring-1 ring-white/10 rounded-2xl mb-3">
+    <div className="lg:hidden sticky top-0 z-20 flex items-center justify-between px-4 py-3 bg-white/10 backdrop-blur-xl ring-1 ring-white/10 rounded-2xl mb-3 ios-glass">
       {/* Left: avatar + name */}
       <Link href="/" className="flex items-center gap-3">
         <div className="ig-ring w-12 h-12">
@@ -86,7 +86,7 @@ export default function MobileTopBar() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M18 6l-12 12" />
                 </svg>
               </button>
-              <div className="menu-pop relative z-10 h-full w-full rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl ring-1 ring-white/15 shadow-[0_10px_28px_rgba(0,0,0,0.25)] overflow-auto no-scrollbar">
+              <div className="menu-pop relative z-10 h-full w-full rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl ring-1 ring-white/15 shadow-[0_10px_28px_rgba(0,0,0,0.25)] overflow-auto no-scrollbar ios-glass">
                 <nav className="py-2">
                   {items.map((item) => {
                     const active = pathname === item.href;
