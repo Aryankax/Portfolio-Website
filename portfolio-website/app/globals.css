@@ -293,10 +293,17 @@ body {
 /* iOS Safari glass fix: ensure proper compositing and avoid white washout */
 .ios-glass {
   background-clip: padding-box;
-  background-color: rgba(12, 12, 12, 0.38);
+  background-color: rgba(12, 12, 12, 0.16);
   -webkit-backdrop-filter: saturate(140%) blur(18px);
   backdrop-filter: saturate(140%) blur(18px);
   isolation: isolate;
+}
+
+/* Slightly adjust alpha for iOS Safari only */
+@supports (-webkit-backdrop-filter: blur(0)) {
+  .ios-glass {
+    background-color: rgba(12, 12, 12, 0.14);
+  }
 }
 
 /* Mobile menu pop animation */
