@@ -21,14 +21,17 @@ export default function NavMenu() {
   const [indicatorHeight, setIndicatorHeight] = useState(0);
 
   const activeIndex = useMemo(
-    () => Math.max(0, items.findIndex((i) => i.href === pathname)),
+    () => items.findIndex((i) => i.href === pathname),
     [pathname]
   );
 
   useEffect(() => {
     const el = linkRefs.current[activeIndex];
     const container = containerRef.current;
-    if (!el || !container) return;
+    if (!el || !container) {
+      setIndicatorHeight(0);
+      return;
+    }
     const elRect = el.getBoundingClientRect();
     const cRect = container.getBoundingClientRect();
     setIndicatorTop(elRect.top - cRect.top);
@@ -39,11 +42,15 @@ export default function NavMenu() {
     const key = e.key;
     if (key !== "ArrowDown" && key !== "ArrowUp" && key !== "Enter") return;
     e.preventDefault();
-    let idx = activeIndex;
-    if (key === "ArrowDown") idx = Math.min(items.length - 1, activeIndex + 1);
-    if (key === "ArrowUp") idx = Math.max(0, activeIndex - 1);
+    let idx = activeIndex < 0 ? 0 : activeIndex;
+    if (key === "ArrowDown") idx = Math.min(items.length - 1, idx + 1);
+    if (key === "ArrowUp") idx = Math.max(0, idx - 1);
     if (key === "Enter") {
-      router.push(items[activeIndex].href);
+      if (activeIndex < 0) {
+        router.push("/");
+      } else {
+        router.push(items[activeIndex].href);
+      }
       return;
     }
     linkRefs.current[idx]?.focus?.();

@@ -1,6 +1,6 @@
 export default function ThinGlassPanel() {
   return (
-    <div className="w-[76px] h-[280px] rounded-2xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl backdrop-saturate-200 shadow-[0_8px_32px_rgba(0,0,0,0.2)] ring-1 ring-white/10 overflow-hidden flex flex-col items-center justify-evenly py-3">
+    <div className="hidden lg:flex w-[76px] h-[280px] rounded-2xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl backdrop-saturate-200 shadow-[0_8px_32px_rgba(0,0,0,0.2)] ring-1 ring-white/10 overflow-hidden flex-col items-center justify-evenly py-3">
         <IconLink href="https://www.linkedin.com/in/aryan-kacker/" label="LinkedIn">
         {/* LinkedIn icon */}
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">

@@ -4,6 +4,8 @@ import ThinGlassPanel from "@/components/ThinGlassPanel";
 import NavMenu from "@/components/NavMenu";
 import TitleBar from "@/components/TitleBar";
 import AmbientBlob from "@/components/AmbientBlob";
+import Link from "next/link";
+import MobileTopBar from "@/components/MobileTopBar";
 
 export const metadata = {
   title: "Next.js",
@@ -14,32 +16,34 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://github.com" />
         <link rel="preconnect" href="https://www.linkedin.com" />
       </head>
       <body>
-        <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black bg-wallpaper-mac bg-cover bg-center">
-          <div className="flex items-center gap-6">
+        <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black bg-wallpaper-mac bg-cover bg-center px-2 sm:px-4">
+          <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 sm:gap-4 lg:gap-6 w-full max-w-[1240px]">
             <ThinGlassPanel />
             <GlassPanel>
-              <div className="flex h-full">
+              <div className="flex flex-col lg:flex-row h-full">
                 {/* Left partition (nav + avatar) */}
-                <div className="w-[330px] h-full border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl backdrop-saturate-200 shadow-[0_6px_24px_rgba(0,0,0,0.15)] ring-1 ring-white/10 rounded-2xl p-5 pb-24 overflow-visible">
-                  <div className="flex items-center gap-4">
+                <div className="hidden lg:block w-full lg:w-[330px] h-full border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-xl backdrop-saturate-200 shadow-[0_6px_24px_rgba(0,0,0,0.15)] ring-1 ring-white/10 rounded-2xl p-5 pb-6 lg:pb-24 overflow-visible mb-3 lg:mb-0">
+                  <Link href="/" className="flex items-center gap-4 group cursor-pointer select-none mb-4">
                     <div className="ig-ring w-24 h-24">
                       <div className="inner me w-full h-full rounded-full bg-center bg-cover ring-2 ring-white/70 shadow-sm" />
                     </div>
                     <div style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" }}>
-                      <div className="text-white/95 text-2xl font-semibold leading-tight">Aryan Kacker</div>
+                      <div className="text-white/95 text-2xl font-semibold leading-tight group-hover:underline">Aryan Kacker</div>
                       <div className="text-white/85 text-base">Software Engineer</div>
                     </div>
-                  </div>
+                  </Link>
                   <NavMenu />
                   <div className="h-6" />
                 </div>
 
                 {/* Right partition (title + routed content) */}
                 <div className="flex-1 h-full rounded-2xl overflow-hidden flex flex-col min-h-0 relative">
+                  <MobileTopBar />
                   <TitleBar />
                   <AmbientBlob />
                   <div className="flex-1 overflow-auto stealth-scrollbar px-6 py-4 pr-6 text-white/90 scroll-smooth min-h-0 relative z-[2]">
